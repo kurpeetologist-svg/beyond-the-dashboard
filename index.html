@@ -87,84 +87,166 @@
     </section>
 
 
-    <section class="section earnings" id="earnings">
+    <section class="section earnings interactive-earnings" id="earnings">
       <div class="chapter-mark">02</div>
-      <div class="section-head reveal">
-        <p class="section-kicker">Current Earnings Snapshot</p>
-        <h2>A multi-platform creator business—not a single revenue stream.</h2>
-        <p class="earnings-intro">This page presents an illustrative estimate of Ms. Cynthia’s current creator-economy revenue using publicly observable audience data, modeled platform payouts, and reasonable commercial assumptions.</p>
-      </div>
 
-      <div class="earnings-hero reveal">
-        <div class="earnings-total">
-          <span>Estimated current monthly gross</span>
-          <strong>$7,950</strong>
-          <small>approximately ₱489,000</small>
-        </div>
-        <div class="earnings-range">
-          <div>
-            <span>Conservative month</span>
-            <strong>$4,350</strong>
+      <div class="earnings-layout">
+        <div class="earnings-copy reveal">
+          <p class="section-kicker">Current Earnings Snapshot</p>
+          <h2>The Creator Revenue Engine™</h2>
+          <p class="earnings-intro">
+            Adjust the assumptions below to see how Ms. Cynthia’s potential creator revenue changes across YouTube, Facebook, sponsorships, affiliates, and other commercial income.
+          </p>
+
+          <div class="earnings-scorecard">
+            <div class="primary-output">
+              <span>Estimated monthly gross</span>
+              <strong id="monthlyGross">$7,950</strong>
+              <small id="monthlyGrossPhp">approximately ₱489,000</small>
+            </div>
+
+            <div class="secondary-output">
+              <div>
+                <span>Annualized gross</span>
+                <strong id="annualGross">$95,400</strong>
+              </div>
+              <div>
+                <span>Estimated monthly take-home</span>
+                <strong id="monthlyNet">$4,050</strong>
+              </div>
+            </div>
           </div>
-          <div>
-            <span>Strong month</span>
-            <strong>$15,500</strong>
+
+          <div class="earnings-disclaimer">
+            <span>Model status</span>
+            <p id="earningsStatus">Expected current run rate based on public audience data and modeled commercial assumptions.</p>
+          </div>
+        </div>
+
+        <div class="earnings-controls reveal">
+          <div class="control-group">
+            <label for="ytRevenue">
+              <span>YouTube advertising</span>
+              <strong id="ytRevenueOut">$1,800</strong>
+            </label>
+            <input id="ytRevenue" type="range" min="500" max="5000" step="100" value="1800">
+            <small>AdSense and YouTube Premium revenue</small>
+          </div>
+
+          <div class="control-group">
+            <label for="fbRevenue">
+              <span>Facebook monetization</span>
+              <strong id="fbRevenueOut">$1,800</strong>
+            </label>
+            <input id="fbRevenue" type="range" min="0" max="6000" step="100" value="1800">
+            <small>In-stream ads, Reels monetization, and bonuses</small>
+          </div>
+
+          <div class="control-group">
+            <label for="sponsorRevenue">
+              <span>Sponsorships & branded content</span>
+              <strong id="sponsorRevenueOut">$3,500</strong>
+            </label>
+            <input id="sponsorRevenue" type="range" min="0" max="12000" step="250" value="3500">
+            <small>Cross-platform paid partnerships and integrations</small>
+          </div>
+
+          <div class="control-group">
+            <label for="affiliateRevenue">
+              <span>Affiliates & other income</span>
+              <strong id="affiliateRevenueOut">$850</strong>
+            </label>
+            <input id="affiliateRevenue" type="range" min="0" max="3000" step="50" value="850">
+            <small>Affiliate links, appearances, licensing, and other income</small>
+          </div>
+
+          <div class="control-group compact">
+            <label for="costRate">
+              <span>Operating cost assumption</span>
+              <strong id="costRateOut">25%</strong>
+            </label>
+            <input id="costRate" type="range" min="10" max="40" step="1" value="25">
+          </div>
+
+          <div class="control-group compact">
+            <label for="taxRate">
+              <span>Effective tax assumption</span>
+              <strong id="taxRateOut">25%</strong>
+            </label>
+            <input id="taxRate" type="range" min="10" max="35" step="1" value="25">
           </div>
         </div>
       </div>
 
-      <div class="revenue-mix reveal">
-        <div class="mix-header">
-          <h3>Estimated monthly revenue mix</h3>
-          <p>Modeled contribution by source</p>
+      <div class="revenue-dashboard reveal">
+        <div class="dashboard-head">
+          <div>
+            <p class="section-kicker">Revenue Mix</p>
+            <h3>Where the monthly revenue is coming from</h3>
+          </div>
+          <div class="scenario-pill" id="scenarioPill">Expected scenario</div>
         </div>
 
-        <div class="mix-row">
-          <div class="mix-label"><span>YouTube advertising</span><strong>$1,800</strong></div>
-          <div class="mix-track"><div style="width:23%"></div></div>
-          <small>23%</small>
+        <div class="revenue-bars">
+          <div class="revenue-bar-row">
+            <div class="bar-meta">
+              <span>YouTube</span>
+              <strong id="ytShare">$1,800 · 23%</strong>
+            </div>
+            <div class="bar-track"><div id="ytBar"></div></div>
+          </div>
+
+          <div class="revenue-bar-row">
+            <div class="bar-meta">
+              <span>Facebook</span>
+              <strong id="fbShare">$1,800 · 23%</strong>
+            </div>
+            <div class="bar-track"><div id="fbBar"></div></div>
+          </div>
+
+          <div class="revenue-bar-row">
+            <div class="bar-meta">
+              <span>Sponsorships</span>
+              <strong id="sponsorShare">$3,500 · 44%</strong>
+            </div>
+            <div class="bar-track"><div id="sponsorBar"></div></div>
+          </div>
+
+          <div class="revenue-bar-row">
+            <div class="bar-meta">
+              <span>Affiliates & other</span>
+              <strong id="affiliateShare">$850 · 10%</strong>
+            </div>
+            <div class="bar-track"><div id="affiliateBar"></div></div>
+          </div>
         </div>
 
-        <div class="mix-row">
-          <div class="mix-label"><span>Facebook monetization</span><strong>$1,800</strong></div>
-          <div class="mix-track"><div style="width:23%"></div></div>
-          <small>23%</small>
-        </div>
+        <div class="earnings-metrics">
+          <article>
+            <span>Annual operating costs</span>
+            <strong id="annualCosts">$23,850</strong>
+            <small id="annualCostsPhp">approximately ₱1.47 million</small>
+          </article>
 
-        <div class="mix-row">
-          <div class="mix-label"><span>Sponsorships & branded content</span><strong>$3,500</strong></div>
-          <div class="mix-track"><div style="width:44%"></div></div>
-          <small>44%</small>
-        </div>
+          <article>
+            <span>Annual estimated tax</span>
+            <strong id="annualTax">$17,888</strong>
+            <small id="annualTaxPhp">approximately ₱1.10 million</small>
+          </article>
 
-        <div class="mix-row">
-          <div class="mix-label"><span>Affiliates & other income</span><strong>$850</strong></div>
-          <div class="mix-track"><div style="width:10%"></div></div>
-          <small>10%</small>
+          <article>
+            <span>Annual after-cost, after-tax income</span>
+            <strong id="annualNet">$53,663</strong>
+            <small id="annualNetPhp">approximately ₱3.30 million</small>
+          </article>
         </div>
-      </div>
-
-      <div class="earnings-grid">
-        <article class="earnings-card reveal">
-          <span>Estimated annual gross</span>
-          <strong>$86,500</strong>
-          <small>approximately ₱5.32 million</small>
-        </article>
-        <article class="earnings-card reveal">
-          <span>Estimated annual operating costs</span>
-          <strong>$21,625</strong>
-          <small>modeled at 25% of gross</small>
-        </article>
-        <article class="earnings-card reveal">
-          <span>Estimated after-cost, after-tax income</span>
-          <strong>$48,625</strong>
-          <small>approximately ₱2.99 million</small>
-        </article>
       </div>
 
       <aside class="model-note reveal">
         <span>Consulting note</span>
-        <p>These figures are not presented as Ms. Cynthia’s disclosed earnings. They are a public-data estimate designed to show revenue architecture, concentration, and commercial potential. First-party platform analytics, contracts, and tax records would be required for verification.</p>
+        <p>
+          This is an illustrative public-data model—not a statement of Ms. Cynthia’s disclosed income. The purpose is to show how revenue concentration, sponsorship volume, operating costs, and tax assumptions interact. First-party platform analytics, contracts, and accounting records would be required for verification.
+        </p>
       </aside>
     </section>
 

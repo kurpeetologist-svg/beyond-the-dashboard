@@ -58,3 +58,104 @@ function updateScore(){
 
 ids.forEach(id => document.getElementById(id).addEventListener('input', updateScore));
 updateScore();
+
+
+const earningsInputs = {
+  yt: document.getElementById('ytRevenue'),
+  fb: document.getElementById('fbRevenue'),
+  sponsor: document.getElementById('sponsorRevenue'),
+  affiliate: document.getElementById('affiliateRevenue'),
+  cost: document.getElementById('costRate'),
+  tax: document.getElementById('taxRate')
+};
+
+const fxRate = 61.53;
+
+function money(value){
+  return new Intl.NumberFormat('en-US', {
+    style:'currency',
+    currency:'USD',
+    maximumFractionDigits:0
+  }).format(value);
+}
+
+function peso(value){
+  return '₱' + new Intl.NumberFormat('en-PH', {
+    maximumFractionDigits:0
+  }).format(value);
+}
+
+function compactPeso(value){
+  if(value >= 1_000_000){
+    return 'approximately ₱' + (value / 1_000_000).toFixed(2) + ' million';
+  }
+  return 'approximately ' + peso(value);
+}
+
+function updateEarnings(){
+  if(!earningsInputs.yt) return;
+
+  const yt = Number(earningsInputs.yt.value);
+  const fb = Number(earningsInputs.fb.value);
+  const sponsor = Number(earningsInputs.sponsor.value);
+  const affiliate = Number(earningsInputs.affiliate.value);
+  const costRate = Number(earningsInputs.cost.value) / 100;
+  const taxRate = Number(earningsInputs.tax.value) / 100;
+
+  const monthly = yt + fb + sponsor + affiliate;
+  const annual = monthly * 12;
+  const annualCosts = annual * costRate;
+  const taxable = annual - annualCosts;
+  const annualTax = taxable * taxRate;
+  const annualNet = taxable - annualTax;
+  const monthlyNet = annualNet / 12;
+
+  document.getElementById('ytRevenueOut').textContent = money(yt);
+  document.getElementById('fbRevenueOut').textContent = money(fb);
+  document.getElementById('sponsorRevenueOut').textContent = money(sponsor);
+  document.getElementById('affiliateRevenueOut').textContent = money(affiliate);
+  document.getElementById('costRateOut').textContent = Math.round(costRate*100) + '%';
+  document.getElementById('taxRateOut').textContent = Math.round(taxRate*100) + '%';
+
+  document.getElementById('monthlyGross').textContent = money(monthly);
+  document.getElementById('monthlyGrossPhp').textContent = 'approximately ' + peso(monthly * fxRate);
+  document.getElementById('annualGross').textContent = money(annual);
+  document.getElementById('monthlyNet').textContent = money(monthlyNet);
+
+  document.getElementById('annualCosts').textContent = money(annualCosts);
+  document.getElementById('annualCostsPhp').textContent = compactPeso(annualCosts * fxRate);
+  document.getElementById('annualTax').textContent = money(annualTax);
+  document.getElementById('annualTaxPhp').textContent = compactPeso(annualTax * fxRate);
+  document.getElementById('annualNet').textContent = money(annualNet);
+  document.getElementById('annualNetPhp').textContent = compactPeso(annualNet * fxRate);
+
+  const items = [
+    ['yt', yt],
+    ['fb', fb],
+    ['sponsor', sponsor],
+    ['affiliate', affiliate]
+  ];
+
+  items.forEach(([id, value]) => {
+    const share = monthly > 0 ? Math.round((value / monthly) * 100) : 0;
+    document.getElementById(id + 'Share').textContent = money(value) + ' · ' + share + '%';
+    document.getElementById(id + 'Bar').style.width = share + '%';
+  });
+
+  let scenario = 'Expected scenario';
+  let status = 'Expected current run rate based on public audience data and modeled commercial assumptions.';
+  if(monthly < 5000){
+    scenario = 'Conservative scenario';
+    status = 'A lower-revenue month with limited sponsorship activity or weaker platform monetization.';
+  } else if(monthly >= 12000){
+    scenario = 'High-performance scenario';
+    status = 'A strong commercial month supported by major brand activity and above-average platform performance.';
+  }
+  document.getElementById('scenarioPill').textContent = scenario;
+  document.getElementById('earningsStatus').textContent = status;
+}
+
+Object.values(earningsInputs).forEach(input => {
+  if(input) input.addEventListener('input', updateEarnings);
+});
+updateEarnings();
