@@ -3,238 +3,265 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Beyond the Dashboard — Independent Creator Strategy & Audience Intelligence Report for Ms. Cynthia." />
+  <meta name="description" content="Beyond the Dashboard — creator strategy and audience intelligence report for Ms. Cynthia." />
   <title>Beyond the Dashboard | Ms. Cynthia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Libre+Franklin:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="progress-bar" id="progressBar"></div>
+  <div class="progress" id="progress"></div>
 
-  <header class="site-header">
-    <a class="brand" href="#top">Beyond the Dashboard</a>
-    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">☰</button>
-    <nav id="mainNav">
-      <a href="#overview">Overview</a>
-      <a href="#findings">Key Findings</a>
-      <a href="#system">Homecoming System</a>
-      <a href="#index">Forecast Tool</a>
-      <a href="#roadmap">Roadmap</a>
+  <header class="topbar">
+    <a class="wordmark" href="#cover">Beyond the Dashboard</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open report navigation">Menu</button>
+    <nav class="chapter-nav" id="chapterNav" aria-label="Report chapters">
+      <a href="#cover"><span>00</span>Cover</a>
+      <a href="#brief"><span>01</span>Brief</a>
+      <a href="#findings"><span>02</span>Findings</a>
+      <a href="#system"><span>03</span>System</a>
+      <a href="#forecast"><span>04</span>Forecast</a>
+      <a href="#roadmap"><span>05</span>Roadmap</a>
     </nav>
   </header>
 
-  <main id="top">
-    <section class="hero">
-      <div class="hero-noise"></div>
-      <div class="hero-content">
-        <span class="eyebrow">Independent Creator Strategy & Audience Intelligence Report</span>
-        <h1>Beyond the Dashboard</h1>
-        <p class="subtitle">The Hidden Drivers Behind Ms. Cynthia’s Success—and the Strategic Path to Her Next Million Subscribers</p>
-        <div class="report-credit">
-          <div class="credit-block">
-            <span class="credit-label">Prepared for</span>
-            <strong class="credit-name">Ms. Cynthia</strong>
+  <main>
+    <section class="cover" id="cover">
+      <div class="cover-glow"></div>
+      <div class="cover-inner">
+        <p class="kicker">Independent Creator Strategy &amp; Audience Intelligence Report</p>
+
+        <div class="cover-title">
+          <h1>Beyond the<br>Dashboard</h1>
+          <p>The Hidden Drivers Behind Ms. Cynthia’s Success—and the Strategic Path to Her Next Million Subscribers</p>
+        </div>
+
+        <div class="cover-credits">
+          <div class="credit-card">
+            <span>Prepared for</span>
+            <strong>Ms. Cynthia</strong>
           </div>
-          <div class="credit-divider" aria-hidden="true"></div>
-          <div class="credit-block">
-            <span class="credit-label">Research, Analysis &amp; Strategic Frameworks</span>
-            <strong class="credit-name">Kurt Pascual</strong>
-            <span class="credit-role">Creator Strategy • Audience Intelligence • Predictive Analytics</span>
+
+          <div class="credit-card author">
+            <span>Research, Analysis &amp; Strategic Frameworks</span>
+            <strong>Kurt Pascual</strong>
+            <small>Creator Strategy • Audience Intelligence • Predictive Analytics</small>
           </div>
-          <div class="credit-meta">
+
+          <div class="edition">
             <span>Version 1.0</span>
             <span>July 2026</span>
           </div>
         </div>
-        <div class="hero-actions">
-          <a class="button primary" href="#overview">Read the Report</a>
-          <a class="button secondary" href="#index">Try the Forecast Engine</a>
-        </div>
+
+        <a class="begin" href="#brief">
+          <span>Begin report</span>
+          <b>↓</b>
+        </a>
       </div>
     </section>
 
-    <section class="section intro" id="overview">
-      <div class="section-label">Executive Brief</div>
-      <div class="two-column">
-        <div>
-          <h2>Everything the analytics dashboard cannot tell you.</h2>
-        </div>
-        <div class="body-copy">
+    <section class="section light" id="brief">
+      <div class="chapter-mark">01</div>
+      <div class="section-head reveal">
+        <p class="section-kicker">Executive Brief</p>
+        <h2>Everything the analytics dashboard cannot tell you.</h2>
+      </div>
+
+      <div class="editorial-grid reveal">
+        <div class="lede">
           <p>Modern creator platforms explain what happened: impressions, watch time, retention, engagement, subscriber growth, and revenue.</p>
+        </div>
+        <div class="copy">
           <p>This report investigates a different question: <strong>what drives long-term audience attachment beyond what traditional analytics can measure?</strong></p>
-          <p>Our central conclusion is that Ms. Cynthia has built an <strong>emotion-driven creator business</strong>. Food, travel, provincial living, and lifestyle are not merely content categories. They are vehicles for familiarity, generosity, belonging, community, and emotional restoration.</p>
+          <p>Our central conclusion is that Ms. Cynthia has built an <strong>emotion-driven creator business</strong>. Food, travel, provincial living, and lifestyle are not simply categories. They are vehicles for belonging, generosity, community, familiarity, and emotional restoration.</p>
         </div>
       </div>
 
-      <div class="callout">
-        <span>Principal Finding</span>
-        <p>Ms. Cynthia’s audience is not simply returning for information or novelty. They are returning for a consistent emotional experience.</p>
-      </div>
+      <aside class="thesis reveal">
+        <span>Principal finding</span>
+        <p>Ms. Cynthia’s audience is not merely returning for information or novelty. They are returning for a consistent emotional experience.</p>
+      </aside>
     </section>
 
-    <section class="section muted" id="findings">
-      <div class="section-label">Key Findings</div>
-      <h2>Six conclusions that shape the strategy.</h2>
-      <div class="card-grid">
-        <article class="finding-card">
+    <section class="section sand" id="findings">
+      <div class="chapter-mark">02</div>
+      <div class="section-head reveal">
+        <p class="section-kicker">Key Findings</p>
+        <h2>Six conclusions that shape the strategy.</h2>
+      </div>
+
+      <div class="findings-grid">
+        <article class="finding reveal">
           <span>01</span>
           <h3>Analytics explain performance—not attachment.</h3>
-          <p>Traditional metrics are essential, but incomplete in explaining why audiences form long-term relationships with creators.</p>
+          <p>Traditional metrics are essential, but incomplete in explaining why audiences build long-term relationships with creators.</p>
         </article>
-        <article class="finding-card">
+        <article class="finding reveal">
           <span>02</span>
           <h3>Emotional consistency is a competitive advantage.</h3>
-          <p>Her strongest content repeatedly delivers warmth, generosity, community, and peace.</p>
+          <p>The strongest content repeatedly delivers warmth, generosity, community, and peace.</p>
         </article>
-        <article class="finding-card">
+        <article class="finding reveal">
           <span>03</span>
-          <h3>Community outperforms novelty.</h3>
-          <p>Content centered on shared meals, family, and human connection appears more durable than trend-led content.</p>
+          <h3>Community appears more durable than novelty.</h3>
+          <p>Shared meals, family interaction, and human connection create stronger emotional continuity than trend-led content.</p>
         </article>
-        <article class="finding-card">
+        <article class="finding reveal">
           <span>04</span>
           <h3>Predictability is part of the product.</h3>
-          <p>The audience knows how the content will make them feel—and that certainty strengthens return behavior.</p>
+          <p>The audience knows how the content will make them feel, and that certainty strengthens return behavior.</p>
         </article>
-        <article class="finding-card">
+        <article class="finding reveal">
           <span>05</span>
           <h3>Trust is likely underpriced.</h3>
-          <p>Her brand value extends beyond reach. Audience trust can increase sponsor effectiveness, conversion, and lifetime value.</p>
+          <p>Brand value extends beyond reach. Trust can improve sponsorship effectiveness, conversion, and long-term audience value.</p>
         </article>
-        <article class="finding-card">
+        <article class="finding reveal">
           <span>06</span>
-          <h3>Future content can be evaluated before filming.</h3>
-          <p>The Homecoming Intelligence System™ translates emotional and narrative signals into a pre-production decision model.</p>
+          <h3>Content can be evaluated before filming.</h3>
+          <p>The Homecoming Intelligence System™ turns emotional and narrative signals into a pre-production decision model.</p>
         </article>
       </div>
     </section>
 
-    <section class="section" id="system">
-      <div class="section-label">Proprietary Framework</div>
-      <h2>The Homecoming Intelligence System™</h2>
-      <p class="lead">A unified system for understanding, scoring, and forecasting emotion-driven creator content.</p>
+    <section class="section dark" id="system">
+      <div class="chapter-mark">03</div>
+      <div class="section-head reveal">
+        <p class="section-kicker">Proprietary Framework</p>
+        <h2>The Homecoming Intelligence System™</h2>
+        <p class="section-intro">A unified operating system for understanding, scoring, and forecasting emotion-driven creator content.</p>
+      </div>
 
-      <div class="system-timeline">
-        <div class="system-item">
-          <div class="system-number">1</div>
+      <div class="system-list">
+        <article class="system-row reveal">
+          <span>01</span>
           <div>
             <h3>The Comfort Loop™</h3>
-            <p>Explains how the strongest stories are structured: preparation, purpose, cooking, gathering, sharing, gratitude, and peace.</p>
+            <p>Maps the recurring narrative architecture: preparation, purpose, cooking, gathering, sharing, gratitude, and peace.</p>
           </div>
-        </div>
-        <div class="system-item">
-          <div class="system-number">2</div>
+          <em>Story structure</em>
+        </article>
+        <article class="system-row reveal">
+          <span>02</span>
           <div>
             <h3>The Homecoming Framework™</h3>
             <p>Defines the emotional pillars behind belonging, abundance, ritual, connection, sense of place, and peace.</p>
           </div>
-        </div>
-        <div class="system-item">
-          <div class="system-number">3</div>
+          <em>Emotional architecture</em>
+        </article>
+        <article class="system-row reveal">
+          <span>03</span>
           <div>
             <h3>The Homecoming Index™</h3>
-            <p>Scores a content concept before production using a 100-point emotional potential model.</p>
+            <p>Scores a proposed content concept before production using a 100-point model.</p>
           </div>
-        </div>
-        <div class="system-item">
-          <div class="system-number">4</div>
+          <em>Pre-production scoring</em>
+        </article>
+        <article class="system-row reveal">
+          <span>04</span>
           <div>
             <h3>The Emotional Gravity Model™</h3>
             <p>Estimates whether content is likely to create temporary attention or lasting emotional attachment.</p>
           </div>
-        </div>
-        <div class="system-item">
-          <div class="system-number">5</div>
+          <em>Audience attachment</em>
+        </article>
+        <article class="system-row reveal">
+          <span>05</span>
           <div>
             <h3>The Homecoming Forecast Engine™</h3>
-            <p>Combines emotional scores with commercial and performance assumptions to guide content investment decisions.</p>
+            <p>Combines emotional scores with performance and commercial assumptions to guide content investment decisions.</p>
           </div>
-        </div>
+          <em>Decision support</em>
+        </article>
       </div>
     </section>
 
-    <section class="section dark" id="index">
-      <div class="section-label light">Interactive Forecast Tool</div>
-      <div class="two-column align-start">
-        <div>
+    <section class="section forest" id="forecast">
+      <div class="chapter-mark">04</div>
+      <div class="forecast-layout">
+        <div class="forecast-copy reveal">
+          <p class="section-kicker">Interactive Model</p>
           <h2>The Homecoming Index™</h2>
-          <p class="lead light-text">Score a future video concept before filming. Adjust each pillar to see the projected content tier.</p>
-          <div class="forecast-result">
+          <p>Score a proposed video before production. Adjust each dimension to see how the overall content tier changes.</p>
+
+          <div class="score-panel">
             <div>
               <span>Homecoming Score</span>
-              <strong id="totalScore">75</strong>
-              <small>/100</small>
+              <strong id="score">75</strong><small>/100</small>
             </div>
             <div>
-              <span>Forecast</span>
-              <strong id="forecastLabel">Moderate Risk</strong>
+              <span>Forecast tier</span>
+              <strong id="tier">Moderate Risk</strong>
             </div>
           </div>
-          <div class="meter">
-            <div class="meter-fill" id="meterFill"></div>
-          </div>
-          <p class="forecast-copy" id="forecastCopy">The concept may satisfy existing viewers but needs a stronger emotional narrative before production.</p>
+
+          <div class="score-track"><div id="scoreFill"></div></div>
+          <p class="score-note" id="scoreNote">Strengthen the emotional narrative before production.</p>
         </div>
 
-        <div class="sliders">
+        <div class="controls reveal">
           <label>
-            <span>Belonging <strong id="belongingValue">18</strong>/25</span>
-            <input type="range" id="belonging" min="0" max="25" value="18">
+            <span>Belonging <b id="belongingOut">18</b>/25</span>
+            <input id="belonging" type="range" min="0" max="25" value="18">
           </label>
           <label>
-            <span>Abundance <strong id="abundanceValue">14</strong>/20</span>
-            <input type="range" id="abundance" min="0" max="20" value="14">
+            <span>Abundance <b id="abundanceOut">14</b>/20</span>
+            <input id="abundance" type="range" min="0" max="20" value="14">
           </label>
           <label>
-            <span>Ritual <strong id="ritualValue">11</strong>/15</span>
-            <input type="range" id="ritual" min="0" max="15" value="11">
+            <span>Ritual <b id="ritualOut">11</b>/15</span>
+            <input id="ritual" type="range" min="0" max="15" value="11">
           </label>
           <label>
-            <span>Human Connection <strong id="connectionValue">12</strong>/15</span>
-            <input type="range" id="connection" min="0" max="15" value="12">
+            <span>Human Connection <b id="connectionOut">12</b>/15</span>
+            <input id="connection" type="range" min="0" max="15" value="12">
           </label>
           <label>
-            <span>Sense of Place <strong id="placeValue">8</strong>/10</span>
-            <input type="range" id="place" min="0" max="10" value="8">
+            <span>Sense of Place <b id="placeOut">8</b>/10</span>
+            <input id="place" type="range" min="0" max="10" value="8">
           </label>
           <label>
-            <span>Peace <strong id="peaceValue">12</strong>/15</span>
-            <input type="range" id="peace" min="0" max="15" value="12">
+            <span>Peace <b id="peaceOut">12</b>/15</span>
+            <input id="peace" type="range" min="0" max="15" value="12">
           </label>
         </div>
       </div>
     </section>
 
-    <section class="section" id="roadmap">
-      <div class="section-label">Strategic Path</div>
-      <h2>Road to One Million Subscribers</h2>
-      <div class="roadmap-grid">
-        <article>
+    <section class="section light" id="roadmap">
+      <div class="chapter-mark">05</div>
+      <div class="section-head reveal">
+        <p class="section-kicker">Strategic Path</p>
+        <h2>The road to one million subscribers.</h2>
+      </div>
+
+      <div class="roadmap">
+        <article class="reveal">
           <span>01</span>
           <h3>Codify the emotional promise.</h3>
-          <p>Define the channel’s unmistakable value proposition beyond food and lifestyle.</p>
+          <p>Define the channel’s distinctive value beyond food, travel, and provincial lifestyle.</p>
         </article>
-        <article>
+        <article class="reveal">
           <span>02</span>
           <h3>Score concepts before production.</h3>
-          <p>Use the Homecoming Index™ to prioritize high-potential stories and rework weaker concepts.</p>
+          <p>Use the Homecoming Index™ to prioritize high-potential stories and strengthen weaker ideas.</p>
         </article>
-        <article>
+        <article class="reveal">
           <span>03</span>
           <h3>Build recurring content franchises.</h3>
-          <p>Create recognizable rituals such as rainy-day kitchens, family lunches, and neighborhood meals.</p>
+          <p>Create recognizable rituals viewers can anticipate, remember, and return to.</p>
         </article>
-        <article>
+        <article class="reveal">
           <span>04</span>
           <h3>Protect trust while scaling.</h3>
-          <p>Integrate sponsorships into existing rituals instead of allowing them to interrupt the audience experience.</p>
+          <p>Integrate commercial partnerships into existing rituals instead of interrupting the audience experience.</p>
         </article>
       </div>
 
-      <div class="next-section">
-        <p><strong>Coming next:</strong> Creator business overview, multi-platform revenue architecture, audience intelligence, content pattern analysis, and forecast scenarios.</p>
+      <div class="next-note reveal">
+        <p><strong>Next build:</strong> creator business overview, financial architecture, platform analysis, audience behavior, content forecasts, and the full one-million-subscriber scenario model.</p>
       </div>
     </section>
   </main>
@@ -246,8 +273,7 @@
     </div>
     <div>
       <p>Creator Strategy • Audience Intelligence • Predictive Analytics</p>
-      <p>Confidential Strategy Report · Version 1.0</p>
-      <p>Public-data analysis. Forecasts should be validated against first-party analytics.</p>
+      <p>Version 1.0 · July 2026</p>
     </div>
   </footer>
 

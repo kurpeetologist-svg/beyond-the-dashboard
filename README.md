@@ -1,18 +1,18 @@
-# Beyond the Dashboard Microsite — v0.2
+# Beyond the Dashboard — Digital Publication v2
 
-Open `index.html` in any modern browser.
+This version redesigns the site as an editorial digital report.
 
-This first version includes:
-- Responsive cover and executive brief
+## Included
+- Refined cover hierarchy
+- Kurt Pascual author credit
+- Numbered report navigation
+- Executive brief
 - Key findings
-- Homecoming Intelligence System overview
-- Interactive Homecoming Index calculator
-- Strategic roadmap section
+- Homecoming Intelligence System
+- Interactive Homecoming Index
+- Strategic roadmap
+- Scroll reveal animations
+- Responsive mobile layout
 
-The site is a static HTML/CSS/JavaScript project and can be hosted on GitHub Pages, Netlify, Vercel, or another static hosting service.
-
-
-## v0.2 update
-- Added Kurt Pascual as report author
-- Added creator strategy, audience intelligence, and predictive analytics positioning
-- Updated footer attribution
+## Publish
+Upload the contents of this folder to the root of the existing GitHub repository, replacing the current files.

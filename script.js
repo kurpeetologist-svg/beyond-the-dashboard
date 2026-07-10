@@ -1,53 +1,60 @@
 
-const sliders = ["belonging", "abundance", "ritual", "connection", "place", "peace"];
+const progress = document.getElementById('progress');
+window.addEventListener('scroll', () => {
+  const max = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  progress.style.width = `${(window.scrollY / max) * 100}%`;
+});
 
-function updateForecast() {
+const navToggle = document.getElementById('navToggle');
+const chapterNav = document.getElementById('chapterNav');
+navToggle.addEventListener('click', () => chapterNav.classList.toggle('open'));
+chapterNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => chapterNav.classList.remove('open')));
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+const ids = ['belonging','abundance','ritual','connection','place','peace'];
+
+function updateScore(){
   let total = 0;
-  sliders.forEach(id => {
-    const el = document.getElementById(id);
-    const value = Number(el.value);
+  ids.forEach(id => {
+    const input = document.getElementById(id);
+    const value = Number(input.value);
     total += value;
-    document.getElementById(`${id}Value`).textContent = value;
+    document.getElementById(id + 'Out').textContent = value;
   });
 
-  document.getElementById("totalScore").textContent = total;
-  document.getElementById("meterFill").style.width = `${total}%`;
+  document.getElementById('score').textContent = total;
+  document.getElementById('scoreFill').style.width = `${total}%`;
 
-  let label, copy;
-  if (total >= 95) {
-    label = "Signature Content";
-    copy = "Highest-priority concept. Strong potential for flagship performance, loyalty, and long-tail value.";
-  } else if (total >= 90) {
-    label = "Breakout Candidate";
-    copy = "Very high potential to outperform the channel average. Prioritize production and cross-platform promotion.";
-  } else if (total >= 85) {
-    label = "Strong Performer";
-    copy = "Likely to generate above-average engagement and repeat viewing when packaged effectively.";
-  } else if (total >= 80) {
-    label = "Reliable Upload";
-    copy = "Expected to perform near the channel average. Optimize the title, thumbnail, and opening sequence.";
-  } else if (total >= 70) {
-    label = "Moderate Risk";
-    copy = "The concept may satisfy existing viewers but needs a stronger emotional narrative before production.";
+  let tier, note;
+  if(total >= 95){
+    tier = 'Signature Content';
+    note = 'Highest-priority concept with strong flagship and long-tail potential.';
+  } else if(total >= 90){
+    tier = 'Breakout Candidate';
+    note = 'High potential to outperform the channel average.';
+  } else if(total >= 85){
+    tier = 'Strong Performer';
+    note = 'Likely to generate above-average engagement and repeat viewing.';
+  } else if(total >= 80){
+    tier = 'Reliable Upload';
+    note = 'Expected to perform near the channel average with strong packaging.';
+  } else if(total >= 70){
+    tier = 'Moderate Risk';
+    note = 'Strengthen the emotional narrative before production.';
   } else {
-    label = "High Execution Risk";
-    copy = "Rework the concept by strengthening belonging, human connection, ritual, or emotional resolution.";
+    tier = 'High Execution Risk';
+    note = 'Rework the concept around belonging, connection, ritual, or peace.';
   }
 
-  document.getElementById("forecastLabel").textContent = label;
-  document.getElementById("forecastCopy").textContent = copy;
+  document.getElementById('tier').textContent = tier;
+  document.getElementById('scoreNote').textContent = note;
 }
 
-sliders.forEach(id => document.getElementById(id).addEventListener("input", updateForecast));
-updateForecast();
-
-const menuToggle = document.getElementById("menuToggle");
-const mainNav = document.getElementById("mainNav");
-menuToggle.addEventListener("click", () => mainNav.classList.toggle("open"));
-mainNav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => mainNav.classList.remove("open")));
-
-window.addEventListener("scroll", () => {
-  const scrollTop = document.documentElement.scrollTop;
-  const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-  document.getElementById("progressBar").style.width = `${(scrollTop / scrollHeight) * 100}%`;
-});
+ids.forEach(id => document.getElementById(id).addEventListener('input', updateScore));
+updateScore();
