@@ -1,4 +1,4 @@
-# Beyond the Dashboard Microsite
+# Beyond the Dashboard Microsite — v0.2
 
 Open `index.html` in any modern browser.
 
@@ -10,3 +10,9 @@ This first version includes:
 - Strategic roadmap section
 
 The site is a static HTML/CSS/JavaScript project and can be hosted on GitHub Pages, Netlify, Vercel, or another static hosting service.
+
+
+## v0.2 update
+- Added Kurt Pascual as report author
+- Added creator strategy, audience intelligence, and predictive analytics positioning
+- Updated footer attribution
