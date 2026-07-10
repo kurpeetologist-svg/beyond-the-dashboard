@@ -203,6 +203,141 @@ a{text-decoration:none;color:inherit}
   color:rgba(255,255,255,.7)
 }
 
+.earnings{
+  background:#f7f3eb
+}
+.earnings-intro{
+  max-width:780px;
+  margin-top:24px;
+  font-size:1.08rem;
+  color:var(--muted)
+}
+.earnings-hero{
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:28px;
+  margin-bottom:44px
+}
+.earnings-total{
+  padding:38px;
+  background:var(--forest);
+  color:var(--white)
+}
+.earnings-total span,
+.earnings-range span,
+.earnings-card span{
+  display:block;
+  text-transform:uppercase;
+  letter-spacing:.11em;
+  font-size:.68rem;
+  font-weight:700
+}
+.earnings-total span{color:rgba(255,255,255,.58)}
+.earnings-total strong{
+  display:block;
+  font-family:"Playfair Display",serif;
+  font-size:clamp(3.4rem,7vw,6.5rem);
+  line-height:1;
+  margin:18px 0 10px
+}
+.earnings-total small{color:rgba(255,255,255,.65)}
+.earnings-range{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1px;
+  background:var(--line)
+}
+.earnings-range>div{
+  background:var(--paper-2);
+  padding:28px
+}
+.earnings-range span{color:var(--muted)}
+.earnings-range strong{
+  display:block;
+  font-family:"Playfair Display",serif;
+  font-size:2rem;
+  margin-top:18px
+}
+.revenue-mix{
+  padding:34px;
+  background:#fff;
+  border:1px solid var(--line)
+}
+.mix-header{
+  display:flex;
+  justify-content:space-between;
+  gap:20px;
+  align-items:end;
+  margin-bottom:28px
+}
+.mix-header h3{
+  font-family:"Playfair Display",serif;
+  font-size:1.7rem;
+  margin-bottom:0
+}
+.mix-header p{margin-bottom:0;color:var(--muted)}
+.mix-row{
+  display:grid;
+  grid-template-columns:280px 1fr 48px;
+  gap:18px;
+  align-items:center;
+  padding:16px 0;
+  border-top:1px solid rgba(23,32,28,.08)
+}
+.mix-label{
+  display:flex;
+  justify-content:space-between;
+  gap:16px;
+  font-size:.9rem
+}
+.mix-label strong{font-size:.9rem}
+.mix-track{
+  height:9px;
+  background:rgba(23,32,28,.08);
+  border-radius:999px;
+  overflow:hidden
+}
+.mix-track div{
+  height:100%;
+  background:linear-gradient(90deg,var(--gold),#ddc08e)
+}
+.mix-row small{
+  text-align:right;
+  color:var(--muted)
+}
+.earnings-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:26px
+}
+.earnings-card{
+  padding:28px;
+  border-top:3px solid var(--gold);
+  background:var(--paper-2)
+}
+.earnings-card span{color:var(--muted)}
+.earnings-card strong{
+  display:block;
+  font-family:"Playfair Display",serif;
+  font-size:2rem;
+  margin:24px 0 6px
+}
+.earnings-card small{color:var(--muted)}
+.model-note{
+  margin-top:34px;
+  padding:28px 30px;
+  border-left:3px solid var(--gold);
+  background:rgba(183,146,87,.1)
+}
+.model-note span{
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  font-size:.68rem;
+  font-weight:700
+}
+.model-note p{margin:8px 0 0;max-width:920px}
+
 .editorial-grid{
   display:grid;
   grid-template-columns:.9fr 1.1fr;
@@ -385,7 +520,7 @@ footer strong{
   }
   .chapter-nav.open{display:flex}
   .cover{padding:110px 6vw 60px}
-  .cover-title,.cover-credits,.editorial-grid,.forecast-layout{
+  .cover-title,.cover-credits,.editorial-grid,.forecast-layout,.earnings-hero{
     grid-template-columns:1fr
   }
   .cover-title{gap:28px}
@@ -393,7 +528,11 @@ footer strong{
   .cover-credits{gap:22px}
   .edition{align-items:flex-start}
   .section{padding:90px 6vw}
-  .findings-grid,.roadmap{grid-template-columns:1fr}
+  .findings-grid,.roadmap,.earnings-grid{grid-template-columns:1fr}
+  .mix-row{grid-template-columns:1fr}
+  .mix-row small{text-align:left}
+  .mix-header{align-items:flex-start;flex-direction:column}
+  .earnings-range{grid-template-columns:1fr 1fr}
   .system-row{grid-template-columns:50px 1fr}
   .system-row em{grid-column:2}
   .chapter-mark{top:40px}
