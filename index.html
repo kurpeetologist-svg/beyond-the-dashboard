@@ -21,9 +21,10 @@
       <a href="#brief"><span>01</span>Brief</a>
       <a href="#earnings"><span>02</span>Earnings</a>
       <a href="#findings"><span>03</span>Findings</a>
-      <a href="#system"><span>04</span>System</a>
-      <a href="#forecast"><span>05</span>Forecast</a>
-      <a href="#roadmap"><span>06</span>Roadmap</a>
+      <a href="#intelligence"><span>04</span>Content</a>
+      <a href="#system"><span>05</span>System</a>
+      <a href="#forecast"><span>06</span>Forecast</a>
+      <a href="#roadmap"><span>07</span>Roadmap</a>
     </nav>
   </header>
 
@@ -87,165 +88,173 @@
     </section>
 
 
-    <section class="section earnings interactive-earnings" id="earnings">
+    <section class="section earnings-table-section" id="earnings">
       <div class="chapter-mark">02</div>
 
-      <div class="earnings-layout">
-        <div class="earnings-copy reveal">
-          <p class="section-kicker">Current Earnings Snapshot</p>
-          <h2>The Creator Revenue Engine™</h2>
-          <p class="earnings-intro">
-            Adjust the assumptions below to see how Ms. Cynthia’s potential creator revenue changes across YouTube, Facebook, sponsorships, affiliates, and other commercial income.
-          </p>
-
-          <div class="earnings-scorecard">
-            <div class="primary-output">
-              <span>Estimated monthly gross</span>
-              <strong id="monthlyGross">$7,950</strong>
-              <small id="monthlyGrossPhp">approximately ₱489,000</small>
-            </div>
-
-            <div class="secondary-output">
-              <div>
-                <span>Annualized gross</span>
-                <strong id="annualGross">$95,400</strong>
-              </div>
-              <div>
-                <span>Estimated monthly take-home</span>
-                <strong id="monthlyNet">$4,050</strong>
-              </div>
-            </div>
-          </div>
-
-          <div class="earnings-disclaimer">
-            <span>Model status</span>
-            <p id="earningsStatus">Expected current run rate based on public audience data and modeled commercial assumptions.</p>
-          </div>
-        </div>
-
-        <div class="earnings-controls reveal">
-          <div class="control-group">
-            <label for="ytRevenue">
-              <span>YouTube advertising</span>
-              <strong id="ytRevenueOut">$1,800</strong>
-            </label>
-            <input id="ytRevenue" type="range" min="500" max="5000" step="100" value="1800">
-            <small>AdSense and YouTube Premium revenue</small>
-          </div>
-
-          <div class="control-group">
-            <label for="fbRevenue">
-              <span>Facebook monetization</span>
-              <strong id="fbRevenueOut">$1,800</strong>
-            </label>
-            <input id="fbRevenue" type="range" min="0" max="6000" step="100" value="1800">
-            <small>In-stream ads, Reels monetization, and bonuses</small>
-          </div>
-
-          <div class="control-group">
-            <label for="sponsorRevenue">
-              <span>Sponsorships & branded content</span>
-              <strong id="sponsorRevenueOut">$3,500</strong>
-            </label>
-            <input id="sponsorRevenue" type="range" min="0" max="12000" step="250" value="3500">
-            <small>Cross-platform paid partnerships and integrations</small>
-          </div>
-
-          <div class="control-group">
-            <label for="affiliateRevenue">
-              <span>Affiliates & other income</span>
-              <strong id="affiliateRevenueOut">$850</strong>
-            </label>
-            <input id="affiliateRevenue" type="range" min="0" max="3000" step="50" value="850">
-            <small>Affiliate links, appearances, licensing, and other income</small>
-          </div>
-
-          <div class="control-group compact">
-            <label for="costRate">
-              <span>Operating cost assumption</span>
-              <strong id="costRateOut">25%</strong>
-            </label>
-            <input id="costRate" type="range" min="10" max="40" step="1" value="25">
-          </div>
-
-          <div class="control-group compact">
-            <label for="taxRate">
-              <span>Effective tax assumption</span>
-              <strong id="taxRateOut">25%</strong>
-            </label>
-            <input id="taxRate" type="range" min="10" max="35" step="1" value="25">
-          </div>
-        </div>
+      <div class="section-head reveal">
+        <p class="section-kicker">Current Earnings Snapshot</p>
+        <h2>A diversified creator business with sponsorship-led upside.</h2>
+        <p class="earnings-table-intro">
+          The estimates below combine modeled platform revenue, sponsorship income, affiliates, and other commercial activity. They are intended to show the likely architecture of the business—not disclose actual earnings.
+        </p>
       </div>
 
-      <div class="revenue-dashboard reveal">
-        <div class="dashboard-head">
+      <div class="kpi-strip reveal">
+        <article>
+          <span>Estimated monthly gross</span>
+          <strong>$7,950</strong>
+          <small>approximately ₱489,000</small>
+        </article>
+        <article>
+          <span>Estimated annual gross</span>
+          <strong>$86,500</strong>
+          <small>approximately ₱5.32 million</small>
+        </article>
+        <article>
+          <span>Estimated monthly take-home</span>
+          <strong>$4,050</strong>
+          <small>after modeled costs and tax</small>
+        </article>
+      </div>
+
+      <div class="financial-table-wrap reveal">
+        <div class="table-heading">
           <div>
-            <p class="section-kicker">Revenue Mix</p>
-            <h3>Where the monthly revenue is coming from</h3>
+            <p class="section-kicker">Revenue Architecture</p>
+            <h3>Estimated monthly revenue by source</h3>
           </div>
-          <div class="scenario-pill" id="scenarioPill">Expected scenario</div>
+          <span>Expected case</span>
         </div>
 
-        <div class="revenue-bars">
-          <div class="revenue-bar-row">
-            <div class="bar-meta">
-              <span>YouTube</span>
-              <strong id="ytShare">$1,800 · 23%</strong>
-            </div>
-            <div class="bar-track"><div id="ytBar"></div></div>
-          </div>
+        <table class="financial-table">
+          <thead>
+            <tr>
+              <th>Revenue source</th>
+              <th>Monthly estimate</th>
+              <th>Share of total</th>
+              <th>Strategic interpretation</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>YouTube advertising</td>
+              <td>$1,800</td>
+              <td>23%</td>
+              <td>Stable platform income tied to long-form view volume and audience geography.</td>
+            </tr>
+            <tr>
+              <td>Facebook monetization</td>
+              <td>$1,800</td>
+              <td>23%</td>
+              <td>Meaningful secondary platform revenue, but less predictable than YouTube.</td>
+            </tr>
+            <tr>
+              <td>Sponsorships & branded content</td>
+              <td>$3,500</td>
+              <td>44%</td>
+              <td>Largest modeled contributor and primary source of commercial upside.</td>
+            </tr>
+            <tr>
+              <td>Affiliates & other income</td>
+              <td>$850</td>
+              <td>10%</td>
+              <td>Smaller but diversified income from links, licensing, appearances, and related activity.</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td>Total estimated monthly gross</td>
+              <td>$7,950</td>
+              <td>100%</td>
+              <td>Expected current run rate based on public-data assumptions.</td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
 
-          <div class="revenue-bar-row">
-            <div class="bar-meta">
-              <span>Facebook</span>
-              <strong id="fbShare">$1,800 · 23%</strong>
-            </div>
-            <div class="bar-track"><div id="fbBar"></div></div>
-          </div>
-
-          <div class="revenue-bar-row">
-            <div class="bar-meta">
-              <span>Sponsorships</span>
-              <strong id="sponsorShare">$3,500 · 44%</strong>
-            </div>
-            <div class="bar-track"><div id="sponsorBar"></div></div>
-          </div>
-
-          <div class="revenue-bar-row">
-            <div class="bar-meta">
-              <span>Affiliates & other</span>
-              <strong id="affiliateShare">$850 · 10%</strong>
-            </div>
-            <div class="bar-track"><div id="affiliateBar"></div></div>
+      <div class="scenario-table-wrap reveal">
+        <div class="table-heading">
+          <div>
+            <p class="section-kicker">Scenario Range</p>
+            <h3>How revenue may vary month to month</h3>
           </div>
         </div>
 
-        <div class="earnings-metrics">
-          <article>
-            <span>Annual operating costs</span>
-            <strong id="annualCosts">$23,850</strong>
-            <small id="annualCostsPhp">approximately ₱1.47 million</small>
-          </article>
+        <table class="scenario-table">
+          <thead>
+            <tr>
+              <th>Scenario</th>
+              <th>Monthly gross</th>
+              <th>Annualized gross</th>
+              <th>Likely conditions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="scenario-tag conservative">Conservative</span></td>
+              <td>$4,350</td>
+              <td>$52,200</td>
+              <td>Lower sponsor activity, softer Meta performance, or fewer uploads.</td>
+            </tr>
+            <tr class="highlight-row">
+              <td><span class="scenario-tag expected">Expected</span></td>
+              <td>$7,950</td>
+              <td>$86,500</td>
+              <td>Current modeled platform performance with regular sponsorship activity.</td>
+            </tr>
+            <tr>
+              <td><span class="scenario-tag strong">Strong</span></td>
+              <td>$15,500</td>
+              <td>$186,000</td>
+              <td>Major branded campaigns, stronger platform distribution, and above-average commercial demand.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-          <article>
-            <span>Annual estimated tax</span>
-            <strong id="annualTax">$17,888</strong>
-            <small id="annualTaxPhp">approximately ₱1.10 million</small>
-          </article>
-
-          <article>
-            <span>Annual after-cost, after-tax income</span>
-            <strong id="annualNet">$53,663</strong>
-            <small id="annualNetPhp">approximately ₱3.30 million</small>
-          </article>
+      <div class="annual-bridge-wrap reveal">
+        <div class="table-heading">
+          <div>
+            <p class="section-kicker">Annual Earnings Bridge</p>
+            <h3>From gross revenue to estimated take-home income</h3>
+          </div>
         </div>
+
+        <table class="bridge-table">
+          <tbody>
+            <tr>
+              <td>Estimated annual gross revenue</td>
+              <td>$86,500</td>
+              <td>₱5.32 million</td>
+            </tr>
+            <tr>
+              <td>Less: modeled operating costs</td>
+              <td>($21,625)</td>
+              <td>(₱1.33 million)</td>
+            </tr>
+            <tr>
+              <td>Estimated income before tax</td>
+              <td>$64,875</td>
+              <td>₱3.99 million</td>
+            </tr>
+            <tr>
+              <td>Less: modeled income tax</td>
+              <td>($16,250)</td>
+              <td>(₱1.00 million)</td>
+            </tr>
+            <tr class="bridge-total">
+              <td>Estimated annual take-home income</td>
+              <td>$48,625</td>
+              <td>₱2.99 million</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
       <aside class="model-note reveal">
-        <span>Consulting note</span>
+        <span>Methodology note</span>
         <p>
-          This is an illustrative public-data model—not a statement of Ms. Cynthia’s disclosed income. The purpose is to show how revenue concentration, sponsorship volume, operating costs, and tax assumptions interact. First-party platform analytics, contracts, and accounting records would be required for verification.
+          These figures are not presented as Ms. Cynthia’s disclosed earnings. They are an illustrative public-data model built from observable audience size, estimated platform revenue, and reasonable commercial assumptions. First-party analytics, sponsorship contracts, expense records, and tax filings would be required for verification.
         </p>
       </aside>
     </section>
@@ -291,8 +300,121 @@
       </div>
     </section>
 
-    <section class="section dark" id="system">
+
+    <section class="section intelligence-section" id="intelligence">
       <div class="chapter-mark">04</div>
+
+      <div class="section-head reveal">
+        <p class="section-kicker">Actionable Content Intelligence</p>
+        <h2>What should Ms. Cynthia make more of?</h2>
+        <p class="intelligence-intro">
+          The content review suggests that Ms. Cynthia’s strongest themes do different jobs. Family cooking builds loyalty. Provincial and community life strengthens return behavior. Solo travel expands discovery. The strategy is to assign each format a role—and build the publishing mix intentionally.
+        </p>
+      </div>
+
+      <div class="content-kpi-grid reveal">
+        <article>
+          <span>Strongest loyalty signal</span>
+          <strong>Cooking with family</strong>
+          <p>Food becomes more powerful when it includes familiar relationships, generosity, ritual, and a shared table.</p>
+        </article>
+        <article>
+          <span>Strongest discovery signal</span>
+          <strong>Solo travel</strong>
+          <p>New places and independent exploration create novelty, searchable interest, and broader audience entry points.</p>
+        </article>
+        <article>
+          <span>Most defensible brand territory</span>
+          <strong>Homecoming &amp; community</strong>
+          <p>Provincial life, local routines, and human connection create the emotional experience competitors cannot easily copy.</p>
+        </article>
+      </div>
+
+      <div class="content-engine reveal">
+        <div class="content-engine-head">
+          <div>
+            <p class="section-kicker">Content Opportunity Map</p>
+            <h3>Relative engagement signal by theme</h3>
+            <p>
+              The index below is directional rather than a first-party platform metric. It normalizes the observed public-content patterns into a 100-point comparative signal so themes can be prioritized consistently.
+            </p>
+          </div>
+          <div class="signal-legend">
+            <span><i class="signal-dot core"></i>Core engine</span>
+            <span><i class="signal-dot growth"></i>Growth engine</span>
+            <span><i class="signal-dot support"></i>Support layer</span>
+          </div>
+        </div>
+
+        <div class="theme-ranking" id="themeRanking" aria-live="polite"></div>
+      </div>
+
+      <div class="mix-planner reveal">
+        <div class="planner-copy">
+          <p class="section-kicker">Publishing Mix Planner</p>
+          <h3>Choose the next business priority.</h3>
+          <p>Change the objective to see how the recommended ten-upload slate should shift.</p>
+
+          <div class="goal-tabs" role="group" aria-label="Select a publishing objective">
+            <button class="goal-tab active" type="button" data-goal="balanced">Balanced</button>
+            <button class="goal-tab" type="button" data-goal="growth">Audience growth</button>
+            <button class="goal-tab" type="button" data-goal="loyalty">Audience loyalty</button>
+            <button class="goal-tab" type="button" data-goal="revenue">Revenue</button>
+          </div>
+
+          <aside class="planner-recommendation">
+            <span>Recommended action</span>
+            <p id="mixRecommendation"></p>
+          </aside>
+        </div>
+
+        <div class="mix-output">
+          <div class="mix-output-top">
+            <span>Recommended allocation</span>
+            <strong id="mixGoalLabel">Balanced portfolio</strong>
+          </div>
+          <div id="contentMix" class="content-mix"></div>
+
+          <div class="upload-slate">
+            <span>Next 10 uploads</span>
+            <div id="uploadSlate" class="upload-chips"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-grid reveal">
+        <article>
+          <span>01 · Franchise</span>
+          <h3>Make family cooking the recurring anchor.</h3>
+          <p>Create a named, recognizable series around preparing, gathering, sharing, and gratitude—not isolated recipe videos.</p>
+        </article>
+        <article>
+          <span>02 · Funnel</span>
+          <h3>Use solo travel to acquire; use homecoming to retain.</h3>
+          <p>Follow a travel-led discovery upload within seven days with a family, food, or community story that introduces the channel’s emotional promise.</p>
+        </article>
+        <article>
+          <span>03 · Monetization</span>
+          <h3>Place brands inside trusted rituals.</h3>
+          <p>Sponsor integration should support an existing meal, trip, household routine, or act of generosity instead of becoming the entire story.</p>
+        </article>
+        <article>
+          <span>04 · Measurement</span>
+          <h3>Track performance by content role.</h3>
+          <p>Compare seven-day views, engagement rate, returning viewers, shares, saves, comment quality, and revenue per upload within each theme.</p>
+        </article>
+      </div>
+
+      <aside class="measurement-note reveal">
+        <span>Decision rule</span>
+        <p>
+          Do not judge every format by views alone. Travel should earn discovery. Family cooking should earn comments, shares, and repeat viewing. Community stories should improve returning-viewer behavior. Sponsored content should protect trust while increasing revenue per upload.
+        </p>
+      </aside>
+    </section>
+
+    <section class="section dark" id="system">
+      <div class="chapter-mark">05</div>
       <div class="section-head reveal">
         <p class="section-kicker">Proprietary Framework</p>
         <h2>The Homecoming Intelligence System™</h2>
@@ -344,7 +466,7 @@
     </section>
 
     <section class="section forest" id="forecast">
-      <div class="chapter-mark">05</div>
+      <div class="chapter-mark">06</div>
       <div class="forecast-layout">
         <div class="forecast-copy reveal">
           <p class="section-kicker">Interactive Model</p>
@@ -396,7 +518,7 @@
     </section>
 
     <section class="section light" id="roadmap">
-      <div class="chapter-mark">06</div>
+      <div class="chapter-mark">07</div>
       <div class="section-head reveal">
         <p class="section-kicker">Strategic Path</p>
         <h2>The road to one million subscribers.</h2>
@@ -426,7 +548,7 @@
       </div>
 
       <div class="next-note reveal">
-        <p><strong>Next build:</strong> creator business overview, financial architecture, platform analysis, audience behavior, content forecasts, and the full one-million-subscriber scenario model.</p>
+        <p><strong>Next build:</strong> connect first-party platform exports to the content taxonomy, validate category-level engagement rates, and expand the one-million-subscriber scenario model.</p>
       </div>
     </section>
   </main>

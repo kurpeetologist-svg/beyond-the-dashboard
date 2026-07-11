@@ -60,102 +60,184 @@ ids.forEach(id => document.getElementById(id).addEventListener('input', updateSc
 updateScore();
 
 
-const earningsInputs = {
-  yt: document.getElementById('ytRevenue'),
-  fb: document.getElementById('fbRevenue'),
-  sponsor: document.getElementById('sponsorRevenue'),
-  affiliate: document.getElementById('affiliateRevenue'),
-  cost: document.getElementById('costRate'),
-  tax: document.getElementById('taxRate')
+
+
+// Actionable Content Intelligence
+const contentThemes = [
+  {
+    name: 'Cooking with family & shared meals',
+    descriptor: 'Food + familiar relationships + generosity',
+    signal: 96,
+    role: 'core',
+    job: 'Loyalty engine',
+    interpretation: 'Best anchor for comments, shares, repeat viewing, and emotional attachment.'
+  },
+  {
+    name: 'Provincial life & community',
+    descriptor: 'Local routines + place + human connection',
+    signal: 91,
+    role: 'core',
+    job: 'Retention engine',
+    interpretation: 'Builds the most defensible identity and strongest sense of homecoming.'
+  },
+  {
+    name: 'Family moments & personal milestones',
+    descriptor: 'Familiar personalities + emotional stakes',
+    signal: 87,
+    role: 'core',
+    job: 'Conversation engine',
+    interpretation: 'Encourages higher-quality comments and strengthens parasocial familiarity.'
+  },
+  {
+    name: 'Solo travel & exploration',
+    descriptor: 'Novelty + destination interest + independence',
+    signal: 84,
+    role: 'growth',
+    job: 'Discovery engine',
+    interpretation: 'Expands reach and attracts new viewers, then needs a loyalty-building follow-up.'
+  },
+  {
+    name: 'Everyday lifestyle & routines',
+    descriptor: 'Calm utility + familiarity + consistency',
+    signal: 76,
+    role: 'support',
+    job: 'Frequency support',
+    interpretation: 'Maintains publishing consistency but benefits from a stronger emotional story.'
+  },
+  {
+    name: 'Sponsor-first or product-led stories',
+    descriptor: 'Commercial message without a native ritual',
+    signal: 63,
+    role: 'support',
+    job: 'Revenue layer',
+    interpretation: 'Most effective when embedded inside trusted family, food, travel, or household rituals.'
+  }
+];
+
+const ranking = document.getElementById('themeRanking');
+if (ranking) {
+  ranking.innerHTML = contentThemes.map(theme => `
+    <article class="theme-row" data-role="${theme.role}">
+      <div class="theme-name">
+        <strong>${theme.name}</strong>
+        <span>${theme.descriptor}</span>
+      </div>
+      <div class="theme-bar" aria-label="${theme.signal} out of 100">
+        <i style="--signal:${theme.signal}%"></i>
+      </div>
+      <div class="theme-score">${theme.signal}<small>/100</small></div>
+      <div class="theme-job">
+        <strong>${theme.job}</strong>
+        ${theme.interpretation}
+      </div>
+    </article>
+  `).join('');
+}
+
+const mixPlans = {
+  balanced: {
+    label: 'Balanced portfolio',
+    recommendation: 'Protect the family-and-community core while reserving enough travel content to keep introducing the channel to new viewers.',
+    mix: [
+      ['Family cooking & shared meals', 40, 'anchor'],
+      ['Provincial & community life', 20, 'anchor'],
+      ['Solo travel & exploration', 20, 'discovery'],
+      ['Family moments & milestones', 10, 'anchor'],
+      ['Sponsor-led experiments', 10, 'support']
+    ]
+  },
+  growth: {
+    label: 'Audience-growth portfolio',
+    recommendation: 'Increase discovery-led travel, but pair every travel upload with a family, meal, or homecoming story within the following seven days.',
+    mix: [
+      ['Solo travel & exploration', 30, 'discovery'],
+      ['Family cooking & shared meals', 30, 'anchor'],
+      ['Provincial & community life', 20, 'anchor'],
+      ['Family moments & milestones', 10, 'anchor'],
+      ['Sponsor-led experiments', 10, 'support']
+    ]
+  },
+  loyalty: {
+    label: 'Audience-loyalty portfolio',
+    recommendation: 'Concentrate the slate around repeated rituals, familiar personalities, community, and shared meals. Use travel sparingly as contrast.',
+    mix: [
+      ['Family cooking & shared meals', 40, 'anchor'],
+      ['Provincial & community life', 30, 'anchor'],
+      ['Family moments & milestones', 10, 'anchor'],
+      ['Solo travel & exploration', 10, 'discovery'],
+      ['Sponsor-led experiments', 10, 'support']
+    ]
+  },
+  revenue: {
+    label: 'Revenue portfolio',
+    recommendation: 'Increase brand integrations without turning the channel sponsor-first. Place commercial messages inside the highest-trust family, food, travel, and household formats.',
+    mix: [
+      ['Family cooking & shared meals', 30, 'anchor'],
+      ['Provincial & community life', 20, 'anchor'],
+      ['Sponsor-integrated stories', 20, 'support'],
+      ['Solo travel & exploration', 20, 'discovery'],
+      ['Family moments & milestones', 10, 'anchor']
+    ]
+  }
 };
 
-const fxRate = 61.53;
+const contentMix = document.getElementById('contentMix');
+const uploadSlate = document.getElementById('uploadSlate');
+const mixRecommendation = document.getElementById('mixRecommendation');
+const mixGoalLabel = document.getElementById('mixGoalLabel');
+const goalTabs = document.querySelectorAll('.goal-tab');
 
-function money(value){
-  return new Intl.NumberFormat('en-US', {
-    style:'currency',
-    currency:'USD',
-    maximumFractionDigits:0
-  }).format(value);
+function allocateTenUploads(mix) {
+  const raw = mix.map(([label, percent, type]) => ({
+    label,
+    type,
+    count: Math.floor(percent / 10),
+    remainder: (percent / 10) - Math.floor(percent / 10)
+  }));
+
+  let assigned = raw.reduce((sum, item) => sum + item.count, 0);
+  raw
+    .slice()
+    .sort((a, b) => b.remainder - a.remainder)
+    .forEach(item => {
+      if (assigned < 10) {
+        const target = raw.find(entry => entry.label === item.label);
+        target.count += 1;
+        assigned += 1;
+      }
+    });
+
+  return raw;
 }
 
-function peso(value){
-  return '₱' + new Intl.NumberFormat('en-PH', {
-    maximumFractionDigits:0
-  }).format(value);
+function renderMix(goal = 'balanced') {
+  const plan = mixPlans[goal];
+  if (!plan || !contentMix || !uploadSlate) return;
+
+  mixGoalLabel.textContent = plan.label;
+  mixRecommendation.textContent = plan.recommendation;
+
+  contentMix.innerHTML = plan.mix.map(([label, percent]) => `
+    <div class="mix-row">
+      <strong>${label}</strong>
+      <div class="mix-track"><i style="--mix:${percent}%"></i></div>
+      <small>${percent}%</small>
+    </div>
+  `).join('');
+
+  const allocation = allocateTenUploads(plan.mix);
+  uploadSlate.innerHTML = allocation.flatMap(item =>
+    Array.from({ length: item.count }, () =>
+      `<span class="upload-chip ${item.type}" title="${item.label}">${item.label.replace(' & ', ' + ')}</span>`
+    )
+  ).join('');
 }
 
-function compactPeso(value){
-  if(value >= 1_000_000){
-    return 'approximately ₱' + (value / 1_000_000).toFixed(2) + ' million';
-  }
-  return 'approximately ' + peso(value);
-}
-
-function updateEarnings(){
-  if(!earningsInputs.yt) return;
-
-  const yt = Number(earningsInputs.yt.value);
-  const fb = Number(earningsInputs.fb.value);
-  const sponsor = Number(earningsInputs.sponsor.value);
-  const affiliate = Number(earningsInputs.affiliate.value);
-  const costRate = Number(earningsInputs.cost.value) / 100;
-  const taxRate = Number(earningsInputs.tax.value) / 100;
-
-  const monthly = yt + fb + sponsor + affiliate;
-  const annual = monthly * 12;
-  const annualCosts = annual * costRate;
-  const taxable = annual - annualCosts;
-  const annualTax = taxable * taxRate;
-  const annualNet = taxable - annualTax;
-  const monthlyNet = annualNet / 12;
-
-  document.getElementById('ytRevenueOut').textContent = money(yt);
-  document.getElementById('fbRevenueOut').textContent = money(fb);
-  document.getElementById('sponsorRevenueOut').textContent = money(sponsor);
-  document.getElementById('affiliateRevenueOut').textContent = money(affiliate);
-  document.getElementById('costRateOut').textContent = Math.round(costRate*100) + '%';
-  document.getElementById('taxRateOut').textContent = Math.round(taxRate*100) + '%';
-
-  document.getElementById('monthlyGross').textContent = money(monthly);
-  document.getElementById('monthlyGrossPhp').textContent = 'approximately ' + peso(monthly * fxRate);
-  document.getElementById('annualGross').textContent = money(annual);
-  document.getElementById('monthlyNet').textContent = money(monthlyNet);
-
-  document.getElementById('annualCosts').textContent = money(annualCosts);
-  document.getElementById('annualCostsPhp').textContent = compactPeso(annualCosts * fxRate);
-  document.getElementById('annualTax').textContent = money(annualTax);
-  document.getElementById('annualTaxPhp').textContent = compactPeso(annualTax * fxRate);
-  document.getElementById('annualNet').textContent = money(annualNet);
-  document.getElementById('annualNetPhp').textContent = compactPeso(annualNet * fxRate);
-
-  const items = [
-    ['yt', yt],
-    ['fb', fb],
-    ['sponsor', sponsor],
-    ['affiliate', affiliate]
-  ];
-
-  items.forEach(([id, value]) => {
-    const share = monthly > 0 ? Math.round((value / monthly) * 100) : 0;
-    document.getElementById(id + 'Share').textContent = money(value) + ' · ' + share + '%';
-    document.getElementById(id + 'Bar').style.width = share + '%';
+goalTabs.forEach(tab => {
+  tab.addEventListener('click', () => {
+    goalTabs.forEach(button => button.classList.remove('active'));
+    tab.classList.add('active');
+    renderMix(tab.dataset.goal);
   });
-
-  let scenario = 'Expected scenario';
-  let status = 'Expected current run rate based on public audience data and modeled commercial assumptions.';
-  if(monthly < 5000){
-    scenario = 'Conservative scenario';
-    status = 'A lower-revenue month with limited sponsorship activity or weaker platform monetization.';
-  } else if(monthly >= 12000){
-    scenario = 'High-performance scenario';
-    status = 'A strong commercial month supported by major brand activity and above-average platform performance.';
-  }
-  document.getElementById('scenarioPill').textContent = scenario;
-  document.getElementById('earningsStatus').textContent = status;
-}
-
-Object.values(earningsInputs).forEach(input => {
-  if(input) input.addEventListener('input', updateEarnings);
 });
-updateEarnings();
+renderMix();
